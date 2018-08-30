@@ -1,0 +1,75 @@
+{% extends 'home/nav.html' %}
+{% import 'ul/admin_page.html' as pg %}
+{%block content %}
+{% include 'home/menu.html' %}
+    <div class="col-md-9">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;评论记录</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="commentList">
+                    {% for comment in comments_list %}
+                        <li class="item cl">
+                            <a href="{{ url_for('home.user',id=session['user_id']) }}">
+                                <i class="avatar size-L radius">
+                                    {% if face.face %}
+                                    <img  src="{{ url_for('static',filename='uploads/'+face.face) }}" class="img-circle" style="width:50px;height:50px;border:1px solid #abcdef;">
+                                    {% else %}
+                                    {% endif %}
+                                </i>
+
+                            </a>
+                            <div class="comment-main">
+                                <header class="comment-header">
+                                    <div class="comment-meta">
+                                        <a class="comment-author" href="{{ url_for('home.user',id=session['user_id']) }}">{{ comment.user_id }}</a>
+                                        评论于
+                                        {{ comment.addtime }}
+                                    </div>
+                                </header>
+                                <div class="comment-body">
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                            </div>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                    <div class="col-md-12 text-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                  <li><a href="{{ url_for('home.comments',id=session['user_id'],page=1) }}">首页</a></li>
+                            {% if page>1 %}
+                                <li><a href=" {{ url_for('home.comments',id=session['user_id'],page=pre_page) }} ">上一页</a></li>
+                            {% else %}
+                                <li><a href="#">上一页</a></li>
+                            {% endif %}
+                                <li><a href="{{ url_for('home.comments',id=session['user_id'],page=1) }}">1</a></li>
+                            {% if last_page>2 %}
+                                <li><a href="{{url_for('home.comments',id=session['user_id'],page=2) }}">2</a></li>
+                            {% else %}
+                                <li><a href="#">2</a></li>
+                            {% endif %}
+                                {% if page<last_page %}
+                                <li><a href="{{url_for('home.comments',id=session['user_id'],page=next_page) }}">下一页</a></li>
+                                {% else %}
+                                    <li><a href="#">下一页</a></li>
+                                {% endif %}
+                                <li><a href="{{ url_for('home.comments',id=session['user_id'],page=last_page) }}">尾页</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function(){
+        $('#me3').addClass('active')
+    }
+    )
+</script>
+{% endblock %}

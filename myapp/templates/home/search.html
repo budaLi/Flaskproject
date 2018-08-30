@@ -1,0 +1,38 @@
+{% extends 'home/nav.html' %}
+{% import 'ul/admin_page.html' as pg %}
+{% block content %}
+<div class="container" style="margin-top:76px">
+
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb" style="margin-top:6px;">
+                <li>与"{{ key }}"有关的电影，共{{ movie_count }}部</li>
+            </ol>
+        </div>
+        {% for v in page_data.items %}
+        <div class="col-md-12">
+            <div class="media">
+                <div class="media-left">
+                    <a href="{{ url_for('static',filename='uploads/'+v.url) }}">
+                        <img style="width: 200px;height: 100px" class="media-object" src="{{ url_for('static',filename='uploads/'+v.logo) }}" alt="{{ v.title }}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ v.title }}<a href="{{ url_for('static',filename='uploads/'+v.url) }}" class="label label-primary pull-right"><span class="glyphicon glyphicon-play"></span>播放影片</a></h4>
+                    {{ v.info }}
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+
+        <div class="col-md-12 text-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                   {{ pg.page(page_data,'home.search') }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+{% endblock %}

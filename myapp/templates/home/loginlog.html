@@ -1,0 +1,65 @@
+{% extends 'home/nav.html' %}
+
+{%block content %}
+{% include 'home/menu.html' %}
+      <div class="col-md-9">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;登录日志</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td style="width:10%">编号</td>
+                        <td style="width:30%">登录时间</td>
+                        <td style="width:30%">登录IP</td>
+
+                    </tr>
+                    {% for log in login_log %}
+                    <tr>
+                        <td>{{ log.id }}</td>
+                        <td>{{ log.addtime }}</td>
+                        <td>{{ log.ip }}</td>
+
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="box-footer clearfix">
+                            <ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a href="{{ url_for('home.loginlog',id=id,page=1) }}">首页</a></li>
+                            {% if page>1 %}
+                                <li><a href=" {{ url_for('home.loginlog',id=id,page=pre_page) }} ">上一页</a></li>
+                            {% else %}
+                                <li><a href="#">上一页</a></li>
+                            {% endif %}
+                                <li><a href="{{ url_for('home.loginlog',id=id,page=1) }}">1</a></li>
+
+                            {% if last_page>2 %}
+                                <li><a href="{{ url_for('home.loginlog',id=id,page=2) }}">2</a></li>
+                            {% else %}
+                                <li><a href="#">2</a></li>
+                            {% endif %}
+                                {% if page<last_page %}
+                                <li><a href="{{ url_for('home.loginlog',id=id,page=next_page) }}">下一页</a></li>
+                                {% else %}
+                                    <li><a href="#">下一页</a></li>
+                                {% endif %}
+                                <li><a href="{{ url_for('home.loginlog',id=id,page=last_page) }}">尾页</a></li>
+                            </ul>
+                        </div>
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+    $(document).ready(function(){
+        $('#me4').addClass('active')
+    }
+    )
+</script>
+{% endblock %}

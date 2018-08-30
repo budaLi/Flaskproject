@@ -1,0 +1,78 @@
+{% extends 'home/nav.html' %}
+
+{% block content %}
+
+{% include 'home/menu.html' %}
+ <div class="col-md-9">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;会员中心</h3>
+            </div>
+            {% for msg in get_flashed_messages(category_filter=['ok']) %}
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                                <h4><i class="icon fa fa-check">操作成功</i></h4>
+                                {{ msg }}
+                            </div>
+                            {% endfor %}
+                     {% for msg in get_flashed_messages(category_filter=['err']) %}
+                            <div class="alert-error alert" style="color: yellow;background-color: red">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                                <h4><i class="icon fa fa-check">操作失败</i></h4>
+                                {{ msg }}
+                            </div>
+                            {% endfor %}
+            <div class="panel-body">
+                <form role="form" method="POST">
+                    <fieldset>
+                            <div class="form-group">
+                                <label for="input_oldpwd"><span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.old_pwd.label }}</label>
+                                {{ form.old_pwd }}
+                                {% for err in form.old_pwd.errors%}
+                                    <div class="col-md-12" id="input_user" style="color: red">{{ err }}</div>
+                                    {% endfor %}
+                            </div>
+                            <div class="col-md-12" id="error_oldpwd"></div>
+                            <div class="form-group">
+                                <label for="input_newpwd"><span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.new_pwd.label }}</label>
+                                {{ form.new_pwd }}
+                                {% for err in form.new_pwd.errors%}
+                                    <div class="col-md-12" id="input_user" style="color: red">{{ err }}</div>
+                                    {% endfor %}
+                            </div>
+                         <div class="form-group">
+                                <label for="input_newpwd"><span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.new_pwd_again.label }}</label>
+                                {{ form.new_pwd_again }}
+                             {% for err in form.new_pwd_again.errors%}
+                                    <div class="col-md-12" id="input_user" style="color: red">{{ err }}</div>
+                                    {% endfor %}
+                            </div>
+                            <div class="col-md-12" id="error_newpwd"></div>
+
+
+                                {{ form.submit }}
+                                {{ form.csrf_token }}
+
+                        </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function(){
+        $('#me2').addClass('active')
+    }
+    )
+</script>
+      <script>
+            $('#search').click(function(){
+                var key=$('#key').val();
+                location.href='{{ url_for('home.search',page=1) }}?key='+ key
+            })
+    </script>
+{% endblock %}

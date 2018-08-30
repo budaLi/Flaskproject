@@ -1,0 +1,45 @@
+<div class="col-md-3">
+        <div class="list-group">
+
+            {% if session['user_id'] %}
+            <a id='me1' href="{{ url_for('home.user',id=session['user_id']) }}" class="list-group-item">
+                {% else %}
+                <a id='me1' href="{{ url_for('home.user',id=None) }}" class="list-group-item">
+            {% endif %}
+                <span class="glyphicon glyphicon-user"></span>&nbsp;会员中心
+            </a>
+
+        {% if session['user_id'] %}
+             <a id='me2' href="{{ url_for('home.changepwd',id=session['user_id']) }}" class="list-group-item">
+                 {% else %}
+            <a id='me2' href="{{ url_for('home.changepwd',id=None) }}" class="list-group-item">
+                 {% endif %}
+                <span class="glyphicon glyphicon-lock"></span>&nbsp;修改密码
+            </a>
+
+        {% if session['user_id'] %}
+            <a  id='me3' href="{{ url_for('home.comments',id=session['user_id'],page=1) }}" class="list-group-item">
+                {% else %}
+            <a  id='me3' href="{{ url_for('home.comments',id=None,page=1) }}" class="list-group-item">
+                {% endif %}
+                <span class="glyphicon glyphicon-comment"></span>&nbsp;评论记录
+            </a>
+
+        {% if session['user_id'] %}
+            <a id='me4' href="{{ url_for('home.loginlog',id=session['user_id'],page=1) }}" class="list-group-item">
+                {% else %}
+            <a id='me4' href="{{ url_for('home.loginlog',id=None,page=1) }}" class="list-group-item">
+                {% endif %}
+                <span class="glyphicon glyphicon-calendar"></span>&nbsp;登录日志
+            </a>
+
+
+        {% if session['user_id'] %}
+            <a id='me5' href="{{ url_for('home.moviecol',id=session['user_id'],page=1) }}" class="list-group-item">
+                {% else %}
+            <a id='me5' href="{{ url_for('home.moviecol',id=None,page=1 )}}" class="list-group-item">
+                {% endif %}
+                <span class="glyphicon glyphicon-heart"></span>&nbsp;收藏电影
+            </a>
+        </div>
+</div>

@@ -1,0 +1,71 @@
+{% extends 'home/nav.html' %}
+{%block content %}
+{% include 'home/menu.html' %}
+      <div class="col-md-9">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;收藏电影</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                     {% for moviecol in movie_detail %}
+                         {% for movie in moviecol %}
+                   <div class="media">
+                        <div class="media-left">
+                            <a href="{{ url_for('static',filename='uploads/'+movie.url) }}">
+                                <img style="width: 50px;height: 50px" class="media-object" src="{{ url_for('static',filename='uploads/'+movie.logo) }}">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{ movie.title }}<a href="{{ url_for('static',filename='uploads/'+movie.url) }}" class="label label-primary pull-right"><span class="glyphicon glyphicon-play"></span>播放影片</a></h4>
+                            {{ movie.info }}
+                        </div>
+                    </div>
+                             {% endfor %}
+                   {% endfor %}
+                </div>
+                <div class="col-md-12 text-center" style="margin-top:6px;">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                   <ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a href="{{ url_for('home.moviecol',id=session['user_id'],page=1) }}">首页</a></li>
+                            {% if page>1 %}
+                                <li><a href=" {{ url_for('home.moviecol',id=session['user_id'],page=pre_page) }} ">上一页</a></li>
+                            {% else %}
+                                <li><a href="#">上一页</a></li>
+                            {% endif %}
+                                <li><a href="{{ url_for('home.moviecol',id=session['user_id'],page=1) }}">1</a></li>
+                            {% if last_page>2 %}
+                                <li><a href="{{ url_for('home.moviecol',id=session['user_id'],page=2) }}">2</a></li>
+                            {% else %}
+                                <li><a href="#">2</a></li>
+                            {% endif %}
+                                {% if page<last_page %}
+                                <li><a href="{{ url_for('home.moviecol',id=session['user_id'],page=next_page) }}">下一页</a></li>
+                                {% else %}
+                                    <li><a href="#">下一页</a></li>
+                                {% endif %}
+                                <li><a href="{{ url_for('home.moviecol',id=session['user_id'],page=last_page) }}">尾页</a></li>
+                            </ul>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+<script>
+    $(document).ready(function(){
+        $('#me5').addClass('active')
+    }
+    )
+</script>
+     <script>
+            $('#search').click(function(){
+                var key=$('#key').val();
+                location.href='{{ url_for('home.search',page=1) }}?key='+ key
+            })
+    </script>
+{% endblock %}
