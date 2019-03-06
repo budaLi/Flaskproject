@@ -6,4 +6,4 @@
 
 
 后端功能路由
-![功能页面](https://github.com/budaLi/Flaskproject/blob/master/PQGCYN%40WJBQ2PL%24%7B~4U%24ORB.png)
+![功能页面](https://github.com/budaLi/Flaskproject/blob/master/8KBZCPC))I0Z%603DS2835E68.png)
