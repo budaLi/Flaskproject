@@ -4,7 +4,7 @@
 ![前端功能页面](https://github.com/budaLi/Flaskproject/blob/master/PQGCYN%40WJBQ2PL%24%7B~4U%24ORB.png)
 
 效果图
-![后台功能页面](https://github.com/budaLi/Flaskproject/blob/master/houtai.png.png)
+![电影界面](https://github.com/budaLi/Flaskproject/blob/master/OZ7J6W86%40GD)ODGW)YV_4C1.png)
 ![后台功能页面](https://github.com/budaLi/Flaskproject/blob/master/houtai.png.png)
 ![后台功能页面](https://github.com/budaLi/Flaskproject/blob/master/houtai.png.png)
 
