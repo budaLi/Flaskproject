@@ -11,4 +11,20 @@
 
 
 
+![x](https://github.com/budaLi/Flaskproject/blob/master/login.png)
+
+![x](https://github.com/budaLi/Flaskproject/blob/master/index.png)
+
+![x](https://github.com/budaLi/Flaskproject/blob/master/userinfo.png)
+
+![x](https://github.com/budaLi/Flaskproject/blob/master/vedioplay.png)
+
+![x](https://github.com/budaLi/Flaskproject/blob/master/houtaijiemian.png)
+
+
+
+
+
+
+
 
