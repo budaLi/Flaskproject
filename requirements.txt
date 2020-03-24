@@ -6,7 +6,7 @@ backports.shutil-get-terminal-size==1.0.0
 backports.shutil-which==3.5.1
 beautifulsoup4==4.6.0
 billiard==3.3.0.23
-bleach==2.1.4
+bleach==3.1.2
 bs4==0.0.1
 builtwith==1.3.3
 celery==3.1.26.post2
