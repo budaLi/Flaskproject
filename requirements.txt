@@ -32,7 +32,7 @@ functools32==3.2.3.post2
 future==0.16.0
 futures==3.2.0
 html5lib==1.0.1
-httplib2==0.9.2
+httplib2==0.18.0
 idna==2.6
 ioloop==0.1a0
 ipaddress==1.0.22
