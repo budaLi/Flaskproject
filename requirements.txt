@@ -46,7 +46,7 @@ jupyter-client==5.2.3
 jupyter-core==4.4.0
 kiwisolver==1.0.1
 kombu==3.0.37
-lxml==4.2.1
+lxml==4.6.2
 Markdown==2.6.11
 MarkupSafe==1.0
 matplotlib==2.2.3
