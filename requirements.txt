@@ -73,7 +73,7 @@ pyquery==1.4.0
 python-dateutil==2.7.3
 python-whois==0.7.0
 pytz==2018.4
-pywin32==223
+pywin32==301
 pywinpty==0.5.4
 pyzmq==17.1.2
 requests==2.18.4
