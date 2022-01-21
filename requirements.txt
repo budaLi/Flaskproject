@@ -37,7 +37,7 @@ idna==2.6
 ioloop==0.1a0
 ipaddress==1.0.22
 ipykernel==4.8.2
-ipython==5.8.0
+ipython==7.16.3
 ipython-genutils==0.2.0
 jieba==0.39
 Jinja2==2.10
