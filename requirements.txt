@@ -61,7 +61,7 @@ pandocfilters==1.4.2
 pathlib2==2.3.2
 pdfminer==20110515
 pickleshare==0.7.4
-Pillow==5.1.0
+Pillow==9.3.0
 prometheus-client==0.3.1
 prompt-toolkit==1.0.15
 Pygments==2.2.0
